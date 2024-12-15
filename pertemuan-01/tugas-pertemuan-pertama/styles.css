@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #EDE8DC;
+}
+
+.container {
+    width: 50%;
+    padding: 15px;
+    background-color: #A5B68D;
+    border-radius: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    background-color: #C1CFA1;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.list_tugas {
+    gap: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.item_tugas {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item_tugas p {
+    margin: 5px 0;
+    color: #333;
+}
+
+#nama,
+#deadline_tugas,
+#diskripsi_tugas {  
+    width: 98%;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ADD899;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-color: #A5B68D;
+}
+
+#submit_tugas {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+

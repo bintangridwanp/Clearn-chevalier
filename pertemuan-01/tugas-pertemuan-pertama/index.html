@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tugas pertemuan pertama</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List </h1>
+            <div class="content">
+                <form action="todo_list"></form>
+                    <label for="nama"><strong>Nama Tugas </strong></label>
+                    <input id="nama" type="text" name="nama" placeholder="Masukan nama tugas" required>
+                
+                    <label for="diskripsi_tugas"> <strong>Diskirpsi Tugas</strong></label>
+                    <textarea name="diskripsi_tugas" id="diskripsi_tugas" rows="5" required placeholder="Masukan diskripsi tugas"></textarea>
+
+
+                    <label for="deadline_tugas"><strong>Deadline Tugas</strong></label>
+                    <input type="date" name="deadline_tugas" id="deadline_tugas" required>
+
+                    <div id="submit_tugas">
+                        <button type="submit">Tambahkan</button>
+                    </div>
+                </form>
+            <div class="list_tugas">            
+                <div id="daftar_tugas">
+                    <h2>Daftar Tugas</h2>
+                </div>
+                <div class="item_tugas">
+                    <p><strong>Nama Tugas:</strong> Belajar HTML</p>
+                    <P><strong>Diskripsi:</strong> Memahami struktur dasar html</P>
+                    <p><strong>Deadline:</strong> 2024-12-15</p>
+                </div>
+
+                <div class="item_tugas">
+                    <p><strong>Nama Tugas:</strong> Belajar CSS</p>
+                    <P><strong>Diskripsi: </strong> Memahami selector dan properti dasar CSS</P>
+                    <p><strong>Deadline:</strong> 2024-12-2O</p>
+                </div>
+            </div>
+        </div>
+    </div>        
+</body>
+</html>
