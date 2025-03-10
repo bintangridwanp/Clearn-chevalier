@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="title">To-Do List</h1>
+
+    <div class="form-container">
+        <form>
+            <div class="form-group">
+                <label for="task-name">Nama Tugas</label>
+                <input type="text" id="task-name" placeholder="Masukkan nama tugas">
+            </div>
+            <div class="form-group">
+                <label for="task-desc">Deskripsi Tugas</label>
+                <textarea id="task-desc" placeholder="Masukkan deskripsi tugas"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="task-deadline">Deadline Tugas</label>
+                <input type="date" id="task-deadline">
+            </div>
+            <button type="button" class="btn-submit">Tambahkan</button>
+        </form>
+    </div>
+
+    <h2 class="subtitle">Daftar Tugas</h2>
+    <div class="task-list">
+        <div class="task-item">
+            <h3>Belajar HTML dan CSS</h3>
+            <p>Mempelajari dasar-dasar HTML dan CSS untuk membuat website yang menarik.</p>
+            <p>Deadline: 2023-10-30</p>
+            <button class="btn-delete">Hapus</button>
+        </div>
+        <div class="task-item">
+            <h3>Belajar JavaScript</h3>
+            <p>Mempelajari dasar-dasar JavaScript untuk membuat website interaktif.</p>
+            <p>Deadline: 2023-11-15</p>
+            <button class="btn-delete">Hapus</button>
+        </div>
+        <div class="task-item">
+            <h3>Membuat Project Portfolio</h3>
+            <p>Membuat project website untuk ditampilkan pada portfolio.</p>
+            <p>Deadline: 2023-12-01</p>
+            <button class="btn-delete">Hapus</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
