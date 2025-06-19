@@ -1,7 +1,9 @@
+
+<?php
 use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
-    return response()->json(['message' => 'Welcome to the Mahasiswa API']);
+return response()->json(['message' => 'Welcome to the Mahasiswa API']);
 });
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'indexApi']);
