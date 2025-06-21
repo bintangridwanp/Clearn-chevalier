@@ -1,19 +1,23 @@
+// models/mahasiswa.js
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const Mahasiswa = require('./mahasiswaModel');
-const {DataTypes} = require("sequelize");
 
-
-const Mahasiswa = sequelize.define(Mahasiswa, {
-    npm: {
-        type : DataTypes.string,
+const Mahasiswa = sequelize.define('Mahasiswa', {
+    nama: {
+        type: DataTypes.STRING,
         allowNull: false
     },
-    name: {
-        type : DataTypes.string,
+    nim: {
+        type: DataTypes.STRING,
         allowNull: false
     },
     jurusan: {
-        type : DataTypes.string,
+        type: DataTypes.STRING,
         allowNull: false
     }
-})
+}, {
+    tableName: 'mahasiswa',
+    timestamps: false
+});
+
+module.exports = Mahasiswa;
