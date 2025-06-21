@@ -1,27 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Tambah Mahasiswa</h1>
-
-<form action="{{ route('mahasiswa.store') }}" method="POST">
-    @csrf
-    <label>NPM:</label><br>
-    <input type="text" name="npm" required><br><br>
-
-    <label>Nama:</label><br>
-    <input type="text" name="nama" required><br><br>
-
-    <label>Jurusan:</label><br>
-    <input type="text" name="jurusan" required><br><br>
-
-    <label>Tahun Masuk:</label><br>
-    <input type="number" name="tahun_masuk" min="2000" max="{{ date('Y') }}" required><br><br>
-
-    <label>Kelas:</label><br>
-    <input type="text" name="kelas" required><br><br>
-
-    <button type="submit">Simpan</button>
-</form>
-
-<a href="{{ route('mahasiswa.index') }}">Kembali</a>
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Tambah Mahasiswa</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('mahasiswa.store') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label class="form-label">NPM</label>
+                            <input type="text" name="npm" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nama</label>
+                            <input type="text" name="nama" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Jurusan</label>
+                            <input type="text" name="jurusan" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tahun Masuk</label>
+                            <input type="number" name="tahun_masuk" class="form-control" min="2000" max="{{ date('Y') }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Kelas</label>
+                            <input type="text" name="kelas" class="form-control" required>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" class="btn btn-success">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
