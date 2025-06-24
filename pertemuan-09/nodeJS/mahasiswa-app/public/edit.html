@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Mahasiswa</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f4f6f8;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      min-width: 320px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2d3a4b;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input {
+      padding: 0.7rem 1rem;
+      border: 1px solid #d1d9e6;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border 0.2s;
+    }
+    input:focus {
+      border-color: #4f8cff;
+      outline: none;
+    }
+    button {
+      padding: 0.8rem 1rem;
+      background: #4f8cff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h2>Edit Mahasiswa</h2>
+  <form id="editForm">
+    <input type="text" id="npm" placeholder="NPM" required />
+    <input type="text" id="nama" placeholder="Nama" required />
+    <input type="text" id="jurusan" placeholder="Jurusan" required />
+    <input type="number" id="tahunMasuk" placeholder="Tahun Masuk" required />
+    <input type="text" id="kelas" placeholder="Kelas" required />
+    <button type="submit">Simpan Perubahan</button>
+  </form>
+</div>
+<script>
+  // Example: fetch and prefill data if needed
+  // const urlParams = new URLSearchParams(window.location.search);
+  // const id = urlParams.get('id');
+  // fetch(`http://localhost:3000/mahasiswa/${id}`)
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     document.getElementById('npm').value = data.npm;
+  //     document.getElementById('nama').value = data.nama;
+  //     document.getElementById('jurusan').value = data.jurusan;
+  //     document.getElementById('tahunMasuk').value = data.tahunMasuk;
+  //     document.getElementById('kelas').value = data.kelas;
+  //   });
+
+  document.getElementById('editForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = {
+      npm: document.getElementById('npm').value,
+      nama: document.getElementById('nama').value,
+      jurusan: document.getElementById('jurusan').value,
+      tahunMasuk: parseInt(document.getElementById('tahunMasuk').value),
+      kelas: document.getElementById('kelas').value
+    };
+    // Replace 'id' with the actual ID or get it from URL
+    const id = data.npm;
+    const res = await fetch(`http://localhost:3000/mahasiswa/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    alert(result.message || 'Data berhasil diupdate!');
+  });
+</script>
+</body>
+</html>
