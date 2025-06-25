@@ -1,3 +1,4 @@
+<!-- mahasiswa-app/public/detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,44 +7,74 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #f4f6f8;
+      background: #e8f5e9;
       font-family: 'Roboto', sans-serif;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
     }
     .card {
       background: #fff;
       padding: 2rem 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      box-shadow: 0 6px 32px rgba(56, 142, 60, 0.10);
       min-width: 340px;
+      margin-top: 3rem;
     }
     h2 {
       text-align: center;
-      margin-bottom: 1.5rem;
-      color: #2d3a4b;
+      margin-bottom: 2rem;
+      color: #388e3c;
+      letter-spacing: 1px;
     }
     table {
       width: 100%;
       border-collapse: collapse;
+      background: #f9fff9;
+      border-radius: 8px;
+      overflow: hidden;
       margin-bottom: 1rem;
     }
     td {
-      padding: 0.5rem 0.7rem;
-      border-bottom: 1px solid #f0f0f0;
+      padding: 0.7rem 0.8rem;
+      border-bottom: 1px solid #e0e0e0;
       color: #333;
+      font-size: 1rem;
     }
     td.label {
       font-weight: bold;
-      color: #4f8cff;
+      color: #388e3c;
       width: 40%;
+      background: #e8f5e9;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .back-link {
+      display: block;
+      margin-bottom: 1.5rem;
+      color: #388e3c;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #1b5e20;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .card { min-width: 95vw; padding: 1rem; }
+      h2 { font-size: 1.2rem; }
+      td { font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 <div class="card">
+  <a href="index.html" class="back-link">&#8592; Kembali ke Dashboard</a>
   <h2>Detail Mahasiswa</h2>
   <table id="detailTable">
     <tr><td class="label">NPM</td><td id="npm"></td></tr>
@@ -55,23 +86,32 @@
 </div>
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const npm = urlParams.get('npm');
-  if (npm) {
-    fetch(`http://localhost:3000/mahasiswa/${npm}`)
-            .then(res => res.json())
-            .then(data => {
-              document.getElementById('npm').textContent = data.npm || '-';
-              document.getElementById('nama').textContent = data.nama || '-';
-              document.getElementById('jurusan').textContent = data.jurusan || '-';
-              document.getElementById('tahunMasuk').textContent = data.tahunMasuk || '-';
-              document.getElementById('kelas').textContent = data.kelas || '-';
-            })
-            .catch(() => {
-              document.getElementById('detailTable').innerHTML = '<tr><td colspan="2" style="text-align:center;color:red;">Data tidak ditemukan.</td></tr>';
-            });
-  } else {
-    document.getElementById('detailTable').innerHTML = '<tr><td colspan="2" style="text-align:center;color:red;">NPM tidak ditemukan di URL.</td></tr>';
+  const id = urlParams.get('id');
+  const table = document.getElementById('detailTable');
+
+  async function loadDetail() {
+    if (!id) {
+      table.innerHTML = '<tr><td colspan="2" style="text-align:center;color:red;">ID tidak ditemukan di URL.</td></tr>';
+      return;
+    }
+    try {
+      const res = await fetch(`http://localhost:3000/mahasiswa/${encodeURIComponent(id)}`);
+      if (!res.ok) throw new Error('HTTP error');
+      const data = await res.json();
+      if (!data || Object.keys(data).length === 0 || data.id === undefined) {
+        table.innerHTML = '<tr><td colspan="2" style="text-align:center;color:red;">Data tidak ditemukan.</td></tr>';
+        return;
+      }
+      document.getElementById('npm').textContent = data.npm || '-';
+      document.getElementById('nama').textContent = data.nama || '-';
+      document.getElementById('jurusan').textContent = data.jurusan || '-';
+      document.getElementById('tahunMasuk').textContent = data.tahunMasuk || '-';
+      document.getElementById('kelas').textContent = data.kelas || '-';
+    } catch (err) {
+      table.innerHTML = '<tr><td colspan="2" style="text-align:center;color:red;">Data tidak ditemukan.</td></tr>';
+    }
   }
+  loadDetail();
 </script>
 </body>
 </html>

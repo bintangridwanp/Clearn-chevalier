@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="250a1107-165c-4fb6-985d-403f035ccfc6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nodeJS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/.idea/nodeJS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/mahasiswa-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/controller/mahasiswa-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/mahasiswa-model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/mahasiswa-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/route/mahasiswa-route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mahasiswa-app/public/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/public/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mahasiswa-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mahasiswa-app/public/tambah.html" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/public/tambah.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mahasiswa-app/route/mahasiswa-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/mahasiswa-app/route/mahasiswa-route.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1750755300299</updated>
       <workItem from="1750755301773" duration="8215000" />
-      <workItem from="1750789906447" duration="6666000" />
+      <workItem from="1750789906447" duration="12326000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,7 @@ router.get('/', ctrl.getAll);
 router.post('/', ctrl.create);
 router.put('/:id', ctrl.update);
 router.delete('/:id', ctrl.delete);
-router.get('/:id', ctrl.getById); // Get mahasiswa by id
+router.get('/:id', ctrl.getById);
 
 module.exports = router;
 
