@@ -21,3 +21,12 @@ model mahasiswa {
   tahunMasuk  Int
   kelas       String
 }
+
+model User {
+  id           Int    @id @default(autoincrement())
+  namaLengkap  String
+  email        String @unique
+  npm          String @unique
+  passwordHash String
+  noTelepon    String
+}

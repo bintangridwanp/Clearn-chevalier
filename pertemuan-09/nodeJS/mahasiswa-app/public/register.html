@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Mahasiswa</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #e8f5e9;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 32px rgba(56, 142, 60, 0.10);
+            min-width: 400px;
+            margin-top: 4rem;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #388e3c;
+            letter-spacing: 1px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #388e3c;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #a5d6a7;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #f9fff9;
+        }
+        button {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: linear-gradient(90deg, #43a047 60%, #66bb6a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(67, 160, 71, 0.10);
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #388e3c 60%, #43a047 100%);
+        }
+        .error-message {
+            color: #d32f2f;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .success-message {
+            color: #388e3c;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            color: #388e3c;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .card { min-width: 95vw; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>Register Mahasiswa</h2>
+    <form id="registerForm">
+        <div class="error-message" id="errorMsg"></div>
+        <div class="success-message" id="successMsg"></div>
+        <label for="namaLengkap">Nama Lengkap</label>
+        <input type="text" id="namaLengkap" name="namaLengkap" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="npm">NPM</label>
+        <input type="text" id="npm" name="npm" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <label for="noTelepon">No. Telepon</label>
+        <input type="tel" id="noTelepon" name="noTelepon" required>
+        <button type="submit">Register</button>
+    </form>
+    <a class="login-link" href="login.html">Sudah punya akun? Login</a>
+</div>
+<script>
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const namaLengkap = document.getElementById('namaLengkap').value;
+        const email = document.getElementById('email').value;
+        const npm = document.getElementById('npm').value;
+        const password = document.getElementById('password').value;
+        const noTelepon = document.getElementById('noTelepon').value;
+        const errorMsg = document.getElementById('errorMsg');
+        const successMsg = document.getElementById('successMsg');
+        errorMsg.textContent = '';
+        successMsg.textContent = '';
+        try {
+            const res = await fetch('/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ namaLengkap, email, npm, password, noTelepon })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                successMsg.textContent = data.message || 'Registration successful!';
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1200);
+            } else {
+                errorMsg.textContent = data.message || 'Registration failed';
+            }
+        } catch (err) {
+            errorMsg.textContent = 'Network error';
+        }
+    });
+</script>
+</body>
+</html>
