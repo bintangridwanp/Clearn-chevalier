@@ -68,6 +68,17 @@
         @media (max-width: 600px) {
             .card { min-width: 95vw; padding: 1rem; }
         }
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            color: #388e3c;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +92,7 @@
         <input type="password" id="password" name="password" required>
         <button type="submit">Login</button>
     </form>
+    <a class="register-link" href="register.html">Belum punya akun? Register</a>
 </div>
 <script>
     document.getElementById('loginForm').addEventListener('submit', async function(e) {
